@@ -4,3 +4,11 @@ block content
   ul#contents
     each student, index in students
         li= students[index].firstName + ' ' + students[index].lastName
+
+  #entry-template
+      form#addStudent
+          label First Name:
+          input(type="text", name="firstName")
+          label Last Name:
+          input(tupe="text", name="lastName")
+          input(type="submit" value="Post Name")
