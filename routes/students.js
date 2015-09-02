@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var students = require('../models/students.json');
-
+var path = require('path');
+var fs = require('fs');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -23,14 +24,15 @@ router.post('/', function(req, res, next){
 
 
 
-        fs.writeFile(file, JSON.stringify(obj), 'utf-8', function (err) {
+        fs.writeFile(file, JSON.stringify(studentArray), 'utf-8', function (err) {
             if (err) {
                 console.log(err);
             } else {
-                console.log('Wrote Data');
+                res.sendStatus(200);
+                console.log('data written to file');
             }
         });
-        res.send(obj);
+        res.send(studentArray);
     });
 
 });
