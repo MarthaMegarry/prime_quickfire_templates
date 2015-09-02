@@ -29,12 +29,11 @@ router.post('/', function(req, res, next){
                 console.log(err);
             } else {
                 res.sendStatus(200);
+                res.json(studentArray);
                 console.log('data written to file');
             }
         });
-        res.send(studentArray);
     });
-
 });
 
 
